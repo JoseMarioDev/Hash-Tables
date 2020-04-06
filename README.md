@@ -1,5 +1,7 @@
 # Hash Tables in Python
 
+init project - jose mario
+
 Hash tables are arguably the single most important data structures in existence. Used to implement everything from objects in JavaScript and dictionaries in Python to Memcached over a distributed computer network, hash tables are beloved by programmers for providing key/value storage with constant big-O time complexity for insertion, deletion, and access.
 
 ## What is a hash table?
@@ -63,13 +65,13 @@ Now, let's say our hash function maps the keys like so:
 
 Our array would look something like this:
 
-`0` = `<"a", "aardvark">  ->  NULL`
+`0` = `<"a", "aardvark"> -> NULL`
 
-`1` = `<"b", "bear">  ->  NULL`
+`1` = `<"b", "bear"> -> NULL`
 
-`2` = `<"c", "cat">  ->  <"e", "elephant">  ->  NULL`
+`2` = `<"c", "cat"> -> <"e", "elephant"> -> NULL`
 
-`3` = `<"d", "dog">  ->  NULL`
+`3` = `<"d", "dog"> -> NULL`
 
 Now if we want to find the value stored for "e", we would first find it's hashed index (2), then travel through the linked list until we find the key/value pair with a matching key and return the value.
 
@@ -78,7 +80,6 @@ Note that while searching with a hashed index has time complexity of O(1), searc
 ## How do we prevent performance from degrading when the hash table fills up?
 
 Due to this performance degradation, most languages, such as Python, will automatically resize the hash table when it reaches a certain capacity. This is done by creating a new hash table (usually doubling in size) and copying each element one-by-one into the new hash table.
-
 
 # Assignment
 
@@ -89,6 +90,7 @@ Run your code by typing `python hashtable.py`.
 Run tests by typing `python test_hashtable.py`.
 
 ## STRETCH GOALS
+
 1. Research and implement the DJB2 hashing algorithm.
 
 2. Update your HashTable to automatically double in size when it grows past a load factor of 0.7 and half in size when it shrinks past a load factor of 0.2. This should only occur if the HashTable has been resized past the initial size. Refactor tests to pass with your resizing HashTable.
