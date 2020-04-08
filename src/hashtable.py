@@ -47,10 +47,14 @@ class HashTable:
         return self._hash(key) % self.capacity
 
     def insert(self, key, value):
+        # Hashmod the key to find the bucket
         index = self._hash_mod(key)
+       #  Check if a pair already exists in the bucket
         if self.storage[index] is not None:
+            # pair exists, set current pair to head.next, then new pair to head
             head = LinkedPair(key, value)
             head.next = self.storage[index]
+            # set new pair to head
             self.storage[index] = head
 
         else:
@@ -99,6 +103,7 @@ class HashTable:
         new_storage = [None] * self.capacity
 
         for bucket_item in self.storage:
+            # move everything to new storage
             if bucket_item is not None:
                 node = bucket_item
                 new_index = self._hash_mod(node.key)
